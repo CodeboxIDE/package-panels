@@ -1,0 +1,4 @@
+package-panels
+==============
+
+Lateral panels
