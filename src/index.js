@@ -1,7 +1,10 @@
 define([
     "less!src/stylesheets/main.less"
 ], function() {
-    var manager = new codebox.tabs.Manager();
+    var manager = new codebox.tabs.Manager({
+        draggable: false
+    });
+    manager.$el.addClass("component-panels");
 
     // Add tabs to grid
     codebox.app.grid.addView(manager, {
