@@ -5,7 +5,8 @@ define([
 
     // Add tabs to grid
     codebox.app.grid.addView(manager, {
-        width: 20
+        width: 20,
+        at: 0
     });
 
     // Render the tabs manager
