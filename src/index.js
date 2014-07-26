@@ -1,17 +1,16 @@
 define([
-    "src/manager",
     "less!src/stylesheets/main.less"
-], function(PanelsManager) {
-    var manager = new PanelsManager();
+], function() {
+    var manager = new codebox.tabs.Manager();
 
-    // Add panel to grid
+    // Add tabs to grid
     codebox.app.grid.addView(manager, {
         width: 20
     });
 
-    // Render the panel
+    // Render the tabs manager
     manager.render();
 
-    // Export it
+    // Make the tab manager global
     codebox.panels = manager;
 });
