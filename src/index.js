@@ -2,7 +2,7 @@ define([
     "less!src/stylesheets/main.less"
 ], function() {
     var manager = new codebox.tabs.Manager({
-        draggable: false
+        tabMenu: false
     });
     manager.$el.addClass("component-panels");
 
