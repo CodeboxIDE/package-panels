@@ -33,5 +33,14 @@ settings.data.on("change:visible", function() {
     codebox.app.grid.update();
 });
 
+// Add to View menu
+if (codebox.menubar) {
+    codebox.menubar.createMenu("view", {
+        caption: "Toggle Side Bar",
+        command: "view.panels.toggle"
+    });
+}
+
+
 // Make the tab manager global
 codebox.panels = manager;
