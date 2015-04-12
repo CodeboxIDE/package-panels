@@ -1,4 +1,7 @@
 require("./stylesheets/main.less");
+var settings = require("./settings");
+
+var commands = codebox.require("core/commands");
 
 var manager = new codebox.tabs.Manager({
     tabMenu: false
@@ -13,6 +16,22 @@ codebox.app.grid.addView(manager, {
 
 // Render the tabs manager
 manager.render();
+
+// Toggle panels display
+commands.register({
+    id: "view.panels.toggle",
+    title: "View: Toggle Side Bar",
+    run: function() {
+        settings.data.set("visible", !settings.data.get("visible"));
+        codebox.settings.save();
+    }
+});
+
+// Update visibility
+settings.data.on("change:visible", function() {
+    manager._gridOptions.enabled = settings.data.get("visible");
+    codebox.app.grid.update();
+});
 
 // Make the tab manager global
 codebox.panels = manager;
